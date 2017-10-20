@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h2>SPE Lecturers</h2>
+<table>
+    <tr th:each="lecturer : ${lecturers}">
+        <td th:text="${lecturer.id}"</td>
+        <td th:text="${lecturer.firstName}"</td>
+        <td th:text="${lecturer.lastName}"</td>
+    </tr>
+</table>
+</body>
+</html>

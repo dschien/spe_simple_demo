@@ -1,14 +1,12 @@
 package com.schien.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-@Controller
-@RequestMapping("/waterboard")
-public class LecturerController {
+@RestController
+public class LecturerRestController {
 
     @Autowired
     LecturerRepository lecturerRepository;
@@ -21,9 +19,9 @@ public class LecturerController {
     }
 
     @RequestMapping(value = "/lecturers", method = RequestMethod.GET)
-    public String productsList(Model model) {
+    public Iterable<Lecturer> lecturerList(Model model) {
         model.addAttribute("lecturers", lecturerRepository.findAll());
-        return "lecturers";
+        return lecturerRepository.findAll();
     }
 
     @RequestMapping(value = "/savelecturer", method = RequestMethod.POST)
