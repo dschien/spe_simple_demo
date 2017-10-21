@@ -36,7 +36,7 @@ public class DemoApplication {
             log.info("");
 
             // fetch an individual customer by ID
-            Lecturer lecturer = repository.findOne(1L);
+            Lecturer lecturer = repository.findById(1L).get();
             log.info("Lecturer found with findOne(1L):");
             log.info("--------------------------------");
             log.info(lecturer.toString());

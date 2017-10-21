@@ -16,7 +16,7 @@ public class LecturerWebController {
 
     @RequestMapping("/lecturer/{id}")
     public String lecturer(@PathVariable Long id, Model model) {
-        model.addAttribute("lecturer", lecturerRepository.findOne(id));
+        model.addAttribute("lecturer", lecturerRepository.findById(id).get());
         return "lecturer";
     }
 

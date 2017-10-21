@@ -15,7 +15,7 @@ public class LecturerRestController {
 
     @RequestMapping("/lecturer/{id}")
     public Lecturer lecturer(@PathVariable Long id) {
-        return lecturerRepository.findOne(id);
+        return lecturerRepository.findById(id).get();
     }
 
     @RequestMapping(value = "/lecturers", method = RequestMethod.GET)
