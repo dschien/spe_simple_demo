@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-//@RequestMapping("/view/")
+@RequestMapping("/view")
 public class LecturerWebController {
 
     @Autowired
     LecturerRepository lecturerRepository;
 
 
-    @RequestMapping("/view_lecturer/{id}")
+    @RequestMapping("/lecturer/{id}")
     public String lecturer(@PathVariable Long id, Model model) {
-        model.addAttribute("lecturer", lecturerRepository.findById(id).get());
+        model.addAttribute("lecturer", lecturerRepository.findOne(id));
         return "lecturer";
     }
 
-    @RequestMapping(value = "/view_lecturers", method = RequestMethod.GET)
+    @RequestMapping(value = "/lecturers", method = RequestMethod.GET)
     public String lecturerList(Model model) {
         model.addAttribute("lecturers", lecturerRepository.findAll());
         return "lecturers";

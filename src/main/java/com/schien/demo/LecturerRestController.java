@@ -13,14 +13,12 @@ public class LecturerRestController {
 
 
     @RequestMapping("/lecturer/{id}")
-    public String lecturer(@PathVariable Long id, Model model) {
-        model.addAttribute("lecturer", lecturerRepository.findById(id));
-        return "lecturer";
+    public Lecturer lecturer(@PathVariable Long id) {
+        return lecturerRepository.findOne(id);
     }
 
     @RequestMapping(value = "/lecturers", method = RequestMethod.GET)
-    public Iterable<Lecturer> lecturerList(Model model) {
-        model.addAttribute("lecturers", lecturerRepository.findAll());
+    public Iterable<Lecturer> lecturerList() {
         return lecturerRepository.findAll();
     }
 
