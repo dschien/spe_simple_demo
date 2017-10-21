@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-@RequestMapping("/view")
+@RequestMapping("/")
 public class LecturerWebController {
 
     @Autowired
