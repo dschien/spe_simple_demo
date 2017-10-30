@@ -1,16 +1,38 @@
 package com.schien.demo;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests {
 
+    private MockMvc mvc;
+
+    @Autowired
+    private LecturerRestController lecturerRestController;
+
+    @Before
+    public void setup() {
+        this.mvc = MockMvcBuilders.standaloneSetup(lecturerRestController).build();
+    }
+
     @Test
-    public void contextLoads() {
+    public void basicPostRequest() throws Exception {
+        mvc.perform(post("/api/savelecturer")
+                .contentType(MediaType.APPLICATION_JSON).content(
+                        "{\"firstName\":\"Ed\"}"
+                )).andExpect(status().isOk());
     }
 
 }
