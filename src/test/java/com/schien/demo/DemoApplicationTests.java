@@ -28,7 +28,7 @@ public class DemoApplicationTests {
     }
 
     @Test
-    public void basicPostRequest() throws Exception {
+    public void saveLecturer() throws Exception {
         mvc.perform(post("/api/savelecturer")
                 .contentType(MediaType.APPLICATION_JSON).content(
                         "{\"firstName\":\"Ed\"}"
