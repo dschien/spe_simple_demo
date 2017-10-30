@@ -31,7 +31,7 @@ public class DemoApplicationTests {
     public void saveLecturer() throws Exception {
         mvc.perform(post("/api/savelecturer")
                 .contentType(MediaType.APPLICATION_JSON).content(
-                        "{\"firstName\":\"Ed\"}"
+                        "{\"firstName\":\"Ed\",\"lastName\":\"Sheeran\"}"
                 )).andExpect(status().isOk());
     }
 
