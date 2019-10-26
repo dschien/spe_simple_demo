@@ -1,5 +1,7 @@
 # spring_demo_spe_2017
 
+[![CircleCI](https://circleci.com/gh/dschien/spe_simple_demo.svg?style=svg)](https://circleci.com/gh/dschien/spe_simple_demo)
+
 Simple web and REST controller + JPA
 
 # Java Versions
