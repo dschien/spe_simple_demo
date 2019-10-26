@@ -36,11 +36,13 @@ public class DemoApplication {
             log.info("");
 
             // fetch an individual customer by ID
-            Lecturer lecturer = repository.findOne(1L);
-            log.info("Lecturer found with findOne(1L):");
-            log.info("--------------------------------");
-            log.info(lecturer.toString());
-            log.info("");
+            Optional<Lecturer> lecturer = repository.findById(1L);
+            if (lecturer.isPresent()) {
+                log.info("Lecturer found with findOne(1L):");
+                log.info("--------------------------------");
+                log.info(lecturer.get().toString());
+                log.info("");
+            }
 
             // fetch customers by last name
             log.info("Lecturer found with findByLastName('Schien'):");
