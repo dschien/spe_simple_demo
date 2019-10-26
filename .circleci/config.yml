@@ -41,9 +41,9 @@ jobs:
       - run: mvn verify
 
       - store_test_results:
-        path: surefire-reports
+          path: surefire-reports
 
 
       - store_artifacts:
-        path:  target/jacoco-reports
+          path:  target/jacoco-reports
 
