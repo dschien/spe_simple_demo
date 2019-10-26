@@ -4,6 +4,24 @@
 
 Simple web and REST controller + JPA
 
+# Run
+with pg server running
+` db_password=XXX mvn spring-boot:run`
+or 
+`SPRING_PROFILES_ACTIVE=dev mvn spring-boot:run`
+
+or 
+
+# Build with docker
+`mvn install`
+
+run in docker
+`docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8888:8080 dschien/spe-simple-demo:latest`
+or with postgres in 'pg' container
+`docker run --link pg -e "SPRING_PROFILES_ACTIVE=prod" -e "db_password=XXX" -p 8888:8080 dschien/spe-simple-demo:latest`
+
+see also [here](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-running-your-application)
+
 # Java Versions
 In order to use Java >8 you need Spring Boot >2.0 in your pom file. This can trip you up.
 
