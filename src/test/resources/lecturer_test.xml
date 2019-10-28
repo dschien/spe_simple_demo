@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-    <lecturer id="1" firstName="Dan" lastName="Schien"></lecturer>
+    <lecturer id="1" first_name="Dan" last_name="Schien"></lecturer>
 
 </dataset>
