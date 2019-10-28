@@ -24,3 +24,6 @@ nbdist/
 .nb-gradle/
 
 PG_PASSWD
+
+etc/PG_CONFIG.txt
+logs/

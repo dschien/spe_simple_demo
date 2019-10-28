@@ -8,7 +8,7 @@ spring:
 
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://${dbhost}:5432/grottodb
+    url: jdbc:postgresql://${dbhost}:5432/${dbname}
     username: santa
     password: ${db_password}
   jpa:
