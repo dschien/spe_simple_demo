@@ -15,12 +15,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import javax.transaction.Transactional;
-
 import java.util.Optional;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -50,11 +51,14 @@ public class DemoApplicationTests {
 
     @Test
     @DatabaseSetup("/lecturer_test.xml") // read dataset from file
-    public void basic_test() {
+    public void basic_test() throws Exception {
         Optional<Lecturer> lecturer = lecturerRepository.findById(1L);
         if (lecturer.isPresent()) {
             Assert.assertTrue(lecturer.get().getFirstName().equals("Dan"));
         }
+
+        MvcResult mvcResult = mvc.perform(get("/api/lecturer/1")).andExpect(status().isOk()).andReturn();
+        Assert.assertTrue(mvcResult.getResponse().getContentAsString().equals("{\"id\":1,\"firstName\":\"Dan\",\"lastName\":\"Schien\"}"));
     }
 
 
