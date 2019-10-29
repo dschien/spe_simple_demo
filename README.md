@@ -24,7 +24,7 @@ The (default) 'prod' version requires a postgres db running. In production mode 
 # Build and run with docker
 First install docker, of course.
 
-`mvn clean package dockerfile:build`
+`mvn clean package docker:build`
 
 Run in docker:
 `docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8888:8080 dschien/spe-simple-demo:latest`
