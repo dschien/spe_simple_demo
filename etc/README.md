@@ -11,8 +11,11 @@ The run `kubectl apply -k .`
 ## 2. Create a postgres service
 
 step by step instructions [here](https://severalnines.com/database-blog/using-kubernetes-deploy-postgresql)
-
 - include a service, as this enables networking
+
+Run
+
+`kubectl apply -f `
 
 ## 3. Create a deployment and service for the backend servers
 
@@ -92,4 +95,19 @@ This way, we can refer to the service name in the spring deployment container en
 https://kubectl.docs.kubernetes.io/pages/app_management/secrets_and_configmaps.html
 
 @Todo
-use generators to create configmaps and secrets from the same env files  
+use generators to create configmaps and secrets from the same env files
+
+# Autoscale
+
+`kubectl autoscale deployment foo --min=2 --max=10   `  
+
+
+# Ingress
+enable ingress add-on
+
+- no need to work with high port numbers
+- single point of entry
+- tls termination 
+
+[docs](https://kubernetes.github.io/ingress-nginx/deploy/)
+

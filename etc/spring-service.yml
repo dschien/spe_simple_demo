@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo-service
+  name: spring-service
   labels:
     app: spe-demo
 spec:
@@ -16,7 +16,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spe-demo-depl
+  name: spring-depl
   labels:
     app: spe-demo
 spec:
@@ -46,10 +46,10 @@ spec:
           value: "postgres"
           # https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data
         - name: db_password
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: POSTGRES_PASSWORD
 #        envFrom:
 #        - secretRef:
 #            name: mysecret
