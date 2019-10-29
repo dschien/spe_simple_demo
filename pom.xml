@@ -18,6 +18,12 @@
     </parent>
 
 
+    <properties>
+        <spring-test-dbunit.version>1.3.0</spring-test-dbunit.version>
+        <docker.image.prefix>dschien</docker.image.prefix>
+    </properties>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -90,11 +96,6 @@
         </dependency>
     </dependencies>
 
-    <properties>
-        <docker.image.prefix>dschien</docker.image.prefix>
-        <spring-test-dbunit.version>1.3.0</spring-test-dbunit.version>
-    </properties>
-
 
     <build>
         <plugins>
@@ -158,23 +159,27 @@
                     </execution>
                 </executions>
             </plugin>
+
+
             <!--https://spring.io/guides/gs/spring-boot-docker/-->
             <plugin>
+
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven</artifactId>
                 <version>1.4.13</version>
                 <configuration>
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
+
                 </configuration>
                 <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>default</id>-->
-                        <!--<phase>install</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>build</goal>-->
-                            <!--&lt;!&ndash;<goal>push</goal>&ndash;&gt;-->
-                        <!--</goals>-->
-                    <!--</execution>-->
+                <!--<execution>-->
+                <!--<id>default</id>-->
+                <!--<phase>install</phase>-->
+                <!--<goals>-->
+                <!--<goal>build</goal>-->
+                <!--&lt;!&ndash;<goal>push</goal>&ndash;&gt;-->
+                <!--</goals>-->
+                <!--</execution>-->
 
                 <!--</executions>-->
             </plugin>
@@ -201,14 +206,15 @@
 
                 </executions>
             </plugin>
+
+
         </plugins>
     </build>
-
     <repositories>
         <repository>
-            <id>maven.org</id>
-            <url>https://repo1.maven.org/maven2/</url>
+            <id>central 2</id>
+            <name>your custom repo</name>
+            <url>https://repo.maven.apache.org</url>
         </repository>
     </repositories>
-
 </project>

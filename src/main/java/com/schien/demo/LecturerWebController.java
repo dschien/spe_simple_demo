@@ -25,6 +25,7 @@ public class LecturerWebController {
         return "lecturer";
     }
 
+
     @RequestMapping(value = "/lecturers", method = RequestMethod.GET)
     public String lecturerList(Model model) {
         model.addAttribute("lecturers", lecturerRepository.findAll());
