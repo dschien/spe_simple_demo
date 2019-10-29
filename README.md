@@ -7,18 +7,23 @@ Simple web and REST controller + JPA
 # Run
 This application can be run in the host or in docker.
 
+The most simple way is to run in 'dev' mode: 
+`SPRING_PROFILES_ACTIVE=dev mvn spring-boot:run`
+This uses an in-memory DB and so avoids a dependency on an external DB. 
+
 Application config files for 'dev' and 'prod' more are defined in `src/main/resources/`.
 
-The 'prod' version requires a postgres db running.
-In production mode (profile "prod"), with pg server running on port 5432 on server `${dbhost}` (see `src/main/resources/default.properties`):
+The (default) 'prod' version requires a postgres db running. In production mode (profile "prod"), with pg server running on port 5432 on server `${dbhost}` (see `src/main/resources/default.properties`):
+
 ` db_password=XXX mvn spring-boot:run`
+
 (XXX being the password to your postgres server with the db grottodb and username santa (see `src/main/resources/application-prod.yml`)).
 
-Or run in 'dev' mode: 
-`SPRING_PROFILES_ACTIVE=dev mvn spring-boot:run`
 
 
 # Build and run with docker
+First install docker, of course.
+
 `mvn clean package dockerfile:build`
 
 Run in docker:
