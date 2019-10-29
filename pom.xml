@@ -161,60 +161,14 @@
             </plugin>
 
 
-            <!--https://spring.io/guides/gs/spring-boot-docker/-->
             <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.31.0</version>
 
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven</artifactId>
-                <version>1.4.13</version>
-                <configuration>
-                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
-
-                </configuration>
-                <!--<executions>-->
-                <!--<execution>-->
-                <!--<id>default</id>-->
-                <!--<phase>install</phase>-->
-                <!--<goals>-->
-                <!--<goal>build</goal>-->
-                <!--&lt;!&ndash;<goal>push</goal>&ndash;&gt;-->
-                <!--</goals>-->
-                <!--</execution>-->
-
-                <!--</executions>-->
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>unpack</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>${project.artifactId}</artifactId>
-                                    <version>${project.version}</version>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-
-                </executions>
             </plugin>
 
 
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <id>central 2</id>
-            <name>your custom repo</name>
-            <url>https://repo.maven.apache.org</url>
-        </repository>
-    </repositories>
 </project>
