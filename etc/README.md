@@ -103,6 +103,7 @@ use generators to create configmaps and secrets from the same env files
 
 
 # Ingress
+[why nodeport is limited](https://oteemo.com/2017/12/12/think-nodeport-kubernetes/)
 enable ingress add-on
 
 - no need to work with high port numbers

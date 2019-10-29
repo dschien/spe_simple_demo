@@ -33,9 +33,9 @@ spec:
       - name: spe-demo
         image: dschien/spe-simple-demo
         resources:
-          requests:
-            cpu: "100m"
-        imagePullPolicy: IfNotPresent #Always
+#          requests:
+#            cpu: "100m"
+        imagePullPolicy: Always # IfNotPresent #Always
         ports:
           # inside container
         - containerPort: 8080

@@ -7,7 +7,6 @@ metadata:
 spec:
   type: NodePort
   ports:
-    # outside
   - port: 8080
     name: http
   selector:
