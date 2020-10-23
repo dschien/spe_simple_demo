@@ -7,10 +7,6 @@ Simple web and REST controller + JPA
 # Run
 This application can be run in the host or in docker.
 
-## Dependencies
-If you want to run the container in docker, make sure you have [docker installed](https://docs.docker.com/v17.09/engine/installation/).  
-You also need [maven](https://www.baeldung.com/install-maven-on-windows-linux-mac).
-
 The most simple way is to run in 'dev' mode: 
 `SPRING_PROFILES_ACTIVE=dev mvn spring-boot:run`
 This uses an in-memory DB and so avoids a dependency on an external DB. 
@@ -23,7 +19,12 @@ The (default) 'prod' version requires a postgres db running. In production mode 
 
 (XXX being the password to your postgres server with the db grottodb and username santa (see `src/main/resources/application-prod.yml`)).
 
+Then browse to [http://localhost:8080/view/lecturer/1](http://localhost:8080/view/lecturer/1)
+
 # Build and run with docker
+If you want to run the container in docker, make sure you have [docker installed](https://docs.docker.com/v17.09/engine/installation/).  
+You also need [maven](https://www.baeldung.com/install-maven-on-windows-linux-mac).
+
 First install docker, of course.
 
 `mvn clean package docker:build`
